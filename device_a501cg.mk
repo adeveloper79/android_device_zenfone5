@@ -12,12 +12,6 @@ $(call inherit-product, build/target/product/full.mk)
 LOCAL_PATH := device/asus/a501cg
 
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-	LOCAL_KERNEL := $(LOCAL_PATH)/kernel-ww-2.20.40.13
-else
-	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
