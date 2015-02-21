@@ -14,6 +14,8 @@ TARGET_CPU_VARIANT := x86
 
 TARGET_BOOTLOADER_BOARD_NAME := clovertrail
 
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/asus/a501cg/releasetools/ota_from_target_files
+
 # Kernel config 
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
