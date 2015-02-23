@@ -1,7 +1,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/asus/a501cg/BoardConfigVendor.mk
+-include vendor/asus/a500cg/BoardConfigVendor.mk
 
 REF_PRODUCT_NAME := redhookbay
 TARGET_ARCH := x86
@@ -13,6 +13,8 @@ TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := x86
 
 TARGET_BOOTLOADER_BOARD_NAME := clovertrail
+
+
 
 # Kernel config 
 BOARD_KERNEL_BASE := 0x10000000
@@ -35,8 +37,10 @@ TARGET_RECOVERY_FSTAB := device/asus/a501cg/ramdisk/recovery.fstab
 TARGET_RECOVERY_INITRC := device/asus/a501cg/ramdisk/recovery.init.redhookbay.rc
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_RECOVERY_SCREEN_WIDTH := 720
+TARGET_PREBUILT_RECOVERY_KERNEL := device/asus/a501cg/kernel-ww-2.20.40.13
 RECOVERY_SDCARD_ON_DATA := true
 DEVICE_RESOLUTION := 720x1280
+TARGET_NO_SEPARATE_RECOVERY := true
 
 # Wifi
 BOARD_WLAN_DEVICE := bcmdhd
