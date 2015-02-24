@@ -5,11 +5,11 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/asus/a500cg/a500cg-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/asus/a501cg/overlay
+DEVICE_PACKAGE_OVERLAYS += device/asus/redhookbay/overlay
 
 $(call inherit-product, build/target/product/full.mk)
 
-LOCAL_PATH := device/asus/a501cg
+LOCAL_PATH := device/asus/redhookbay
 
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
@@ -22,8 +22,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_a501cg
-PRODUCT_DEVICE := a501cg
+PRODUCT_NAME := full_redhookbay
+PRODUCT_DEVICE := redhookbay
 
 DEVICE_BASE_BOOT_IMAGE := $(LOCAL_PATH)/blobs/boot.img
 DEVICE_BASE_RECOVERY_IMAGE := $(LOCAL_PATH)/blobs/recovery.img

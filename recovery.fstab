@@ -19,3 +19,4 @@
 #size_hint=0   
 /dev/block/platform/intel/by-label/data    	/data    	ext4  	nosuid,nodev,noatime,barrier=1,journal_async_commit,data=ordered,noauto_da_alloc,discard	length=-16384
 #size_hint=-1  
+/dev/block/mmcblk1p1                       	/mnt/sdcard1	vfat  	defaults                                                                                	length=0     

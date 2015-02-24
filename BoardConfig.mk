@@ -21,7 +21,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 cmdline_extra := watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx androidboot.serialno=01234567890123456789012345678901
 BOARD_KERNEL_CMDLINE := init=/init pci=noearly console=logk0 earlyprintk=nologger loglevel=0 kmemleak=off androidboot.bootmedia=sdcard androidboot.hardware=redhookbay $(cmdline_extra) ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on vmalloc=172M androidboot.wakesrc=05 androidboot.mode=main androidboot.selinux=permissive
-TARGET_PREBUILT_KERNEL := device/asus/a501cg/kernel-ww-2.20.40.13
+TARGET_PREBUILT_KERNEL := device/asus/redhookbay/kernel-ww-2.20.40.13
 
 TARGET_NO_RECOVERY := false
 TARGET_NO_BOOTLOADER := true
@@ -33,11 +33,11 @@ ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0
 ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/asus/a501cg/ramdisk/recovery.fstab
-TARGET_RECOVERY_INITRC := device/asus/a501cg/ramdisk/recovery.init.redhookbay.rc
+TARGET_RECOVERY_FSTAB := device/asus/redhookbay/ramdisk/recovery.fstab
+TARGET_RECOVERY_INITRC := device/asus/redhookbay/ramdisk/recovery.init.redhookbay.rc
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_RECOVERY_SCREEN_WIDTH := 720
-TARGET_PREBUILT_RECOVERY_KERNEL := device/asus/a501cg/kernel-ww-2.20.40.13
+TARGET_PREBUILT_RECOVERY_KERNEL := device/asus/redhookbay/kernel-ww-2.20.40.13
 RECOVERY_SDCARD_ON_DATA := true
 DEVICE_RESOLUTION := 720x1280
 TARGET_NO_SEPARATE_RECOVERY := true
@@ -60,7 +60,7 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 
 # HW_Renderer
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/asus/a501cg/configs/egl.cfg
+BOARD_EGL_CFG := device/asus/redhookbay/configs/egl.cfg
 BOARD_ALLOW_EGL_HIBERNATION := true
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
@@ -77,7 +77,7 @@ BUILD_WITH_ALSA_UTILS := true
 
 # SELinux
 HAVE_SELINUX := true
-BOARD_SEPOLICY_DIRS += device/asus/a501cg/sepolicy
+BOARD_SEPOLICY_DIRS += device/asus/redhookbay/sepolicy
 BOARD_SEPOLICY_UNION += \
     file_contexts \
     seapp_contexts \
