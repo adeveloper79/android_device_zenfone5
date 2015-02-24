@@ -5,11 +5,11 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/asus/a500cg/a500cg-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/asus/redhookbay/overlay
+DEVICE_PACKAGE_OVERLAYS += device/asus/ASUS_T00F/overlay
 
 $(call inherit-product, build/target/product/full.mk)
 
-LOCAL_PATH := device/asus/redhookbay
+LOCAL_PATH := device/asus/ASUS_T00F
 
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
