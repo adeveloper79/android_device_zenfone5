@@ -11,6 +11,35 @@ $(call inherit-product, build/target/product/full.mk)
 
 LOCAL_PATH := device/asus/ASUS_T00F
 
+## During Development we will turn off all security etc.
+ADDITIONAL_DEFAULT_PROPERTIES := \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    ro.debugabble=1 
+
+# Intel blobs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/charger:root/charger \
+    $(LOCAL_PATH)/ramdisk/upi_ug31xx:root/upi_ug31xx \
+    $(LOCAL_PATH)/ramdisk/ia_watchdogd:root/usr/bin/ia_watchdogd \
+    $(LOCAL_PATH)/ramdisk/sbin/partlink:root/sbin/partlink
+
+# Binary to be replaced with source code ..
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/init:root/init \
+    $(LOCAL_PATH)/ramdisk/sbin/adbd:root/sbin/adbd \
+    $(LOCAL_PATH)/ramdisk/sepolicy:root/sepolicy
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh \
+	$(LOCAL_PATH)/ramdisk/busybox:root/system/bin/busybox \
+
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/blobs/watchdogd:recovery/root/sbin/watchdogd \
+	$(LOCAL_PATH)/blobs/watchdogd:recovery/root/watchdogd \
+	$(LOCAL_PATH)/blobs/watchdogd:root/watchdogd \
+	$(LOCAL_PATH)/ramdisk/ia_watchdogd:system/bin/ia_watchdogd \
+	$(LOCAL_PATH)/ramdisk/init:root/init
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel-ww-2.20.40.13

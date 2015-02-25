@@ -15,6 +15,10 @@ TARGET_CPU_VARIANT := x86
 TARGET_BOOTLOADER_BOARD_NAME := clovertrail
 
 
+# Use boot tools to make Intel-formatted images
+DEVICE_BASE_BOOT_IMAGE := $(LOCAL_PATH)/blobs/boot.img
+DEVICE_BASE_RECOVERY_IMAGE := $(LOCAL_PATH)/blobs/recovery.img
+
 
 # Kernel config 
 BOARD_KERNEL_BASE := 0x10000000
@@ -26,6 +30,52 @@ TARGET_PREBUILT_KERNEL := device/asus/ASUS_T00F/kernel-ww-2.20.40.13
 TARGET_NO_RECOVERY := false
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
+
+
+# Atom optimizations specified (source:oxavelar)
+TARGET_GLOBAL_CFLAGS += \
+                        -O2 \
+                        -flto \
+                        -march=atom \
+                        -mmmx \
+                        -msse \
+                        -msse2 \
+                        -msse3 \
+                        -mssse3 \
+                        -mpclmul \
+                        -mcx16 \
+                        -msahf \
+                        -mmovbe \
+                        -ftree-vectorize \
+                        -fomit-frame-pointer \
+                        -finline-functions \
+                        -fpredictive-commoning \
+                        -fgcse-after-reload \
+                        -fforce-addr \
+                        -ffast-math \
+                        -fsingle-precision-constant \
+                        -floop-block \
+                        -floop-interchange \
+                        -floop-strip-mine \
+                        -floop-parallelize-all \
+                        -ftree-parallelize-loops=2 \
+                        -ftree-loop-if-convert \
+                        -ftree-loop-if-convert-stores \
+                        -ftree-loop-distribution \
+                        -foptimize-register-move \
+                        -fgraphite-identity \
+
+# The following are very specific to our z2560/2580 Atom
+TARGET_GLOBAL_CFLAGS += \
+                        --param l1-cache-line-size=64 \
+                        --param l1-cache-size=48 \
+                        --param l2-cache-size=1024 \
+
+TARGET_GLOBAL_CFLAGS += -DUSE_SSSE3 -DUSE_SSE2
+
+TARGET_GLOBAL_CPPFLAGS += -march=atom -fno-exceptions
+
+TARGET_GLOBAL_LDFLAGS += -Wl,-O1
 
 # Insecure boot
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
